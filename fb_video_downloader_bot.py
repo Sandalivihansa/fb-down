@@ -23,7 +23,9 @@ def download_video(url: str):
     ydl_opts = {
         'format': 'best',
         'outtmpl': 'downloaded_video.%(ext)s',
-        'quiet': True
+        'quiet': True,
+        'nocheckcertificate': True,  # Bypass SSL certificate checks
+        'no-warnings': True  # Suppress warnings
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info_dict = ydl.extract_info(url, download=True)
