@@ -30,7 +30,7 @@ def download_video(url: str):
         return ydl.prepare_filename(info_dict)
 
 # Start command handler
-@app.on_message(filters.command("start") & filters.public)
+@app.on_message(filters.command("start") & filters.private)
 async def start(client, message):
     buttons = InlineKeyboardMarkup([
         [InlineKeyboardButton("👤 Creator", url="https://t.me/deweni2"),
